@@ -1,0 +1,44 @@
+{
+	"name": "df_agg_derive",
+	"properties": {
+		"description": "dataflow is created  to learn aggregator and derive activity",
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "movies",
+						"type": "DatasetReference"
+					},
+					"name": "moviesv1"
+				}
+			],
+			"sinks": [
+				{
+					"name": "ExtractYearTitle"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          movieId as string,",
+				"          title as string,",
+				"          genres as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> moviesv1",
+				"moviesv1 derive(year = toInteger(trim(right(title,6),'0')),",
+				"          title = toString(left(title,length(title)-6))) ~> derivedColumn1",
+				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> ExtractYearTitle"
+			]
+		}
+	}
+}
