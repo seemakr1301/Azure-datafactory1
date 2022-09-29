@@ -1,0 +1,9 @@
+{
+	"name": "datafactoryseema",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "83296f13-67b7-4e9b-bbe1-18c3396c0239",
+		"tenantId": "183f0284-2a27-4edd-8572-0d3d91c70a84"
+	}
+}
