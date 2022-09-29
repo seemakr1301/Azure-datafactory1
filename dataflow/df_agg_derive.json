@@ -29,6 +29,9 @@
 			"transformations": [
 				{
 					"name": "ExtractYearTitle"
+				},
+				{
+					"name": "RatingBYYear"
 				}
 			],
 			"scriptLines": [
@@ -42,6 +45,7 @@
 				"     ignoreNoFilesFound: false) ~> moviesv1",
 				"moviesv1 derive(year = toInteger(trim(right(title,6),'0')),",
 				"          title = toString(left(title,length(title)-6))) ~> ExtractYearTitle",
+				"ExtractYearTitle aggregate(groupBy(year)) ~> RatingBYYear",
 				"ExtractYearTitle sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     partitionFileNames:['moviesclean.csv'],",
