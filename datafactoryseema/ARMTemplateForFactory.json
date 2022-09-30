@@ -185,8 +185,7 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/df_agg_derive')]",
-				"[concat(variables('factoryId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
+				"[concat(variables('factoryId'), '/dataflows/df_agg_derive')]"
 			]
 		},
 		{
@@ -627,7 +626,7 @@
 						"     allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     ignoreNoFilesFound: false) ~> moviesv1",
-						"moviesv1 derive(year = toInteger(trim(right(title,6),'0')),",
+						"moviesv1 derive(year = toInteger(trim(right(title,6),'()')),",
 						"          title = toString(left(title,length(title)-6))) ~> ExtractYearTitle",
 						"ExtractYearTitle aggregate(groupBy(year),",
 						"     Moviescnt = count(year)) ~> RatingBYYear",
