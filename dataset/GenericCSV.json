@@ -18,7 +18,8 @@
 				"fileName": {
 					"value": "@dataset().FileName",
 					"type": "Expression"
-				}
+				},
+				"container": "moviesoutput"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
