@@ -116,7 +116,22 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> SinkTarget"
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          CustomerID = customersource@CustomerID,",
+				"          Title = customersource@Title,",
+				"          FirstName = customersource@Title,",
+				"          MiddleName = customersource@MiddleName,",
+				"          LastName = customersource@LastName,",
+				"          Suffix = customersource@Suffix,",
+				"          CompanyName = customersource@CompanyName,",
+				"          SalesPerson = customersource@SalesPerson,",
+				"          EmailAddress = customersource@EmailAddress,",
+				"          Phone = customersource@Phone,",
+				"          InsertedDate,",
+				"          ModifiedDate,",
+				"          HashKey = Createhashkey@Hashkey",
+				"     )) ~> SinkTarget"
 			]
 		}
 	}
