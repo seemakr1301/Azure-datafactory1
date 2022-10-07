@@ -369,7 +369,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/df_dim_customer_scdtype1')]"
+				"[concat(variables('factoryId'), '/dataflows/df_dim_customer_scdtype1')]",
+				"[concat(variables('factoryId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
 			]
 		},
 		{
@@ -1194,7 +1195,7 @@
 						"     mapColumn(",
 						"          CustomerID = customersource@CustomerID,",
 						"          Title = customersource@Title,",
-						"          FirstName = customersource@Title,",
+						"          FirstName = customersource@FirstName,",
 						"          MiddleName = customersource@MiddleName,",
 						"          LastName = customersource@LastName,",
 						"          Suffix = customersource@Suffix,",
