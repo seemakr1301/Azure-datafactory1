@@ -121,7 +121,7 @@
 				"     mapColumn(",
 				"          CustomerID = customersource@CustomerID,",
 				"          Title = customersource@Title,",
-				"          FirstName = customersource@Title,",
+				"          FirstName = customersource@FirstName,",
 				"          MiddleName = customersource@MiddleName,",
 				"          LastName = customersource@LastName,",
 				"          Suffix = customersource@Suffix,",
